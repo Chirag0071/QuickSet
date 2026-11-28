@@ -3,57 +3,383 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QuickBite - Fresh, delicious food delivered fast right to your doorstep.">
   <title>QuickBite Food Delivery</title>
   <link rel="stylesheet" href="app1.css">
 </head>
 <body>
-  <header>
-    <h1>QuickBite</h1>
-    <nav>
-      <a href="#menu">Menu</a>
-      <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
-    </nav>
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-icon">🍔</span>
+        <h1>QuickBite</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#cart" class="cart-nav-btn" id="cart-nav-link">
+          🛒 Cart
+          <span id="cart-count" class="badge">0</span>
+        </a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="menu">
-      <h2>Popular Dishes</h2>
-      <div class="menu-grid">
-        <article class="food-card" data-id="1">
-          <h3>Classic Cheeseburger</h3>
-          <p class="price">$9.99</p>
-          <button class="add-btn">Add to Cart</button>
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h2>Craving Delicious Food Delivered Fast?</h2>
+      <p>Order freshly prepared meals from top chefs and get them delivered hot to your door in under 30 minutes.</p>
+      <div class="hero-features">
+        <span class="feature-pill">⏱️ 30 Min Delivery</span>
+        <span class="feature-pill">🚴 Free Delivery Over $25</span>
+        <span class="feature-pill">⭐ 4.9/5 Rating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="main-layout">
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+      <div class="menu-header">
+        <div>
+          <h2>Explore Our Menu</h2>
+          <p class="subtitle">Choose from handcrafted gourmet meals, snacks, and refreshing drinks.</p>
+        </div>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div class="controls-container">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search dishes, ingredients..." aria-label="Search dishes">
+          <button type="button" id="clear-search" class="btn-clear" title="Clear search">✕</button>
+        </div>
+
+        <div class="category-filters" role="tablist" aria-label="Dish categories">
+          <button class="filter-btn active" data-category="all">All Dishes</button>
+          <button class="filter-btn" data-category="burgers">Burgers</button>
+          <button class="filter-btn" data-category="pizza">Pizza</button>
+          <button class="filter-btn" data-category="chicken">Chicken</button>
+          <button class="filter-btn" data-category="healthy">Healthy & Salads</button>
+          <button class="filter-btn" data-category="desserts">Desserts</button>
+        </div>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu-grid" id="menu-grid">
+        <article class="food-card" data-id="1" data-category="burgers" data-name="Classic Cheeseburger" data-price="9.99">
+          <div class="food-badge">Chef's Pick</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🍔</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Burgers</span>
+              <span class="rating">★ 4.8</span>
+            </div>
+            <h3>Classic Cheeseburger</h3>
+            <p class="dish-desc">Juicy grilled beef patty, melted cheddar, crisp lettuce, ripe tomatoes, and secret house sauce in a toasted brioche bun.</p>
+            <div class="card-footer">
+              <span class="price">$9.99</span>
+              <button class="add-btn" data-id="1" aria-label="Add Classic Cheeseburger to cart">Add to Cart</button>
+            </div>
+          </div>
         </article>
-        <article class="food-card" data-id="2">
-          <h3>Margherita Pizza</h3>
-          <p class="price">$12.99</p>
-          <button class="add-btn">Add to Cart</button>
+
+        <article class="food-card" data-id="2" data-category="pizza" data-name="Margherita Pizza" data-price="12.99">
+          <div class="food-badge">Vegetarian</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🍕</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Pizza</span>
+              <span class="rating">★ 4.9</span>
+            </div>
+            <h3>Margherita Pizza</h3>
+            <p class="dish-desc">Wood-fired artisan dough topped with San Marzano tomato sauce, fresh buffalo mozzarella, fragrant basil leaves, and extra virgin olive oil.</p>
+            <div class="card-footer">
+              <span class="price">$12.99</span>
+              <button class="add-btn" data-id="2" aria-label="Add Margherita Pizza to cart">Add to Cart</button>
+            </div>
+          </div>
         </article>
-        <article class="food-card" data-id="3">
-          <h3>Crispy Fried Chicken</h3>
-          <p class="price">$11.49</p>
-          <button class="add-btn">Add to Cart</button>
+
+        <article class="food-card" data-id="3" data-category="chicken" data-name="Crispy Fried Chicken" data-price="11.49">
+          <div class="food-badge">Crispy & Spicy</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🍗</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Chicken</span>
+              <span class="rating">★ 4.7</span>
+            </div>
+            <h3>Crispy Fried Chicken</h3>
+            <p class="dish-desc">Golden, crispy-coated tender chicken seasoned with our secret 11-spice blend, served with garlic herb dip.</p>
+            <div class="card-footer">
+              <span class="price">$11.49</span>
+              <button class="add-btn" data-id="3" aria-label="Add Crispy Fried Chicken to cart">Add to Cart</button>
+            </div>
+          </div>
         </article>
-        <article class="food-card" data-id="4">
-          <h3>Fresh Garden Salad</h3>
-          <p class="price">$7.99</p>
-          <button class="add-btn">Add to Cart</button>
+
+        <article class="food-card" data-id="4" data-category="healthy" data-name="Fresh Garden Salad" data-price="7.99">
+          <div class="food-badge">Low Calorie</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🥗</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Healthy & Salads</span>
+              <span class="rating">★ 4.6</span>
+            </div>
+            <h3>Fresh Garden Salad</h3>
+            <p class="dish-desc">Crisp baby greens, cherry tomatoes, Persian cucumbers, avocado slices, and toasted seeds tossed in lemon-herb vinaigrette.</p>
+            <div class="card-footer">
+              <span class="price">$7.99</span>
+              <button class="add-btn" data-id="4" aria-label="Add Fresh Garden Salad to cart">Add to Cart</button>
+            </div>
+          </div>
         </article>
+
+        <article class="food-card" data-id="5" data-category="burgers" data-name="Smoky BBQ Bacon Burger" data-price="13.49">
+          <div class="food-badge">Popular</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🥓</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Burgers</span>
+              <span class="rating">★ 4.9</span>
+            </div>
+            <h3>Smoky BBQ Bacon Burger</h3>
+            <p class="dish-desc">Double Angus beef patties, applewood smoked bacon, caramelized onions, smoked gouda cheese, and tangy chipotle BBQ sauce.</p>
+            <div class="card-footer">
+              <span class="price">$13.49</span>
+              <button class="add-btn" data-id="5" aria-label="Add Smoky BBQ Bacon Burger to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-id="6" data-category="pizza" data-name="Pepperoni Supreme Pizza" data-price="14.99">
+          <div class="food-badge">Best Seller</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🍕</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Pizza</span>
+              <span class="rating">★ 4.8</span>
+            </div>
+            <h3>Pepperoni Supreme Pizza</h3>
+            <p class="dish-desc">Layered with crisp cupping pepperoni, mozzarella, bell peppers, black olives, and Italian herbs over rich marinara sauce.</p>
+            <div class="card-footer">
+              <span class="price">$14.99</span>
+              <button class="add-btn" data-id="6" aria-label="Add Pepperoni Supreme Pizza to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-id="7" data-category="desserts" data-name="Decadent Chocolate Lava Cake" data-price="6.49">
+          <div class="food-badge">Sweet Tooth</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🍫</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Desserts</span>
+              <span class="rating">★ 4.9</span>
+            </div>
+            <h3>Decadent Chocolate Lava Cake</h3>
+            <p class="dish-desc">Warm dark chocolate sponge cake with a molten Belgian chocolate center, dusted with powdered sugar.</p>
+            <div class="card-footer">
+              <span class="price">$6.49</span>
+              <button class="add-btn" data-id="7" aria-label="Add Decadent Chocolate Lava Cake to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-id="8" data-category="healthy" data-name="Mediterranean Quinoa Bowl" data-price="10.99">
+          <div class="food-badge">Vegan</div>
+          <div class="food-img-wrapper">
+            <span class="food-emoji">🥙</span>
+          </div>
+          <div class="food-info">
+            <div class="food-meta">
+              <span class="category-tag">Healthy & Salads</span>
+              <span class="rating">★ 4.7</span>
+            </div>
+            <h3>Mediterranean Quinoa Bowl</h3>
+            <p class="dish-desc">Fluffy tricolor quinoa, roasted chickpeas, Kalamata olives, diced cucumbers, tahini drizzle, and fresh parsley.</p>
+            <div class="card-footer">
+              <span class="price">$10.99</span>
+              <button class="add-btn" data-id="8" aria-label="Add Mediterranean Quinoa Bowl to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div id="no-results" class="no-results hidden">
+        <p>No dishes found matching your search.</p>
       </div>
     </section>
 
-    <aside id="cart">
-      <h2>Your Order</h2>
-      <ul id="cart-items">
+    <!-- Cart Aside Panel -->
+    <aside id="cart" class="cart-panel" aria-label="Shopping Cart">
+      <div class="cart-header">
+        <h2>Your Order</h2>
+        <button id="clear-cart-btn" class="btn-clear-cart" title="Clear all items">Clear</button>
+      </div>
+
+      <ul id="cart-items" class="cart-list">
         <li class="empty-msg">Your cart is empty</li>
       </ul>
-      <div class="cart-total">
-        <span>Total:</span>
-        <strong id="total-price">$0.00</strong>
+
+      <div class="cart-breakdown">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal-price">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery Fee</span>
+          <span id="delivery-fee">$0.00</span>
+        </div>
+        <div class="summary-row cart-total">
+          <span>Total:</span>
+          <strong id="total-price">$0.00</strong>
+        </div>
       </div>
-      <button id="checkout-btn">Proceed to Checkout</button>
+
+      <button id="checkout-btn" class="btn-primary full-width" disabled>Proceed to Checkout</button>
     </aside>
   </main>
+
+  <!-- Checkout Modal Dialog -->
+  <div id="checkout-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Delivery & Payment Checkout</h3>
+        <button type="button" id="close-modal-btn" class="btn-close" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="checkout-form" class="checkout-form" novalidate>
+        <!-- Delivery Section -->
+        <fieldset class="form-section">
+          <legend>📍 Delivery Information</legend>
+          <div class="form-group">
+            <label for="customer-name">Full Name *</label>
+            <input type="text" id="customer-name" name="name" required placeholder="John Doe">
+            <span class="error-msg" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="customer-phone">Phone Number *</label>
+            <input type="tel" id="customer-phone" name="phone" required placeholder="(555) 000-0000">
+            <span class="error-msg" id="phone-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="customer-address">Delivery Address *</label>
+            <input type="text" id="customer-address" name="address" required placeholder="123 Flavor Street, Apt 4B">
+            <span class="error-msg" id="address-error"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="customer-city">City *</label>
+              <input type="text" id="customer-city" name="city" required placeholder="Metro City">
+              <span class="error-msg" id="city-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="customer-zip">Zip Code *</label>
+              <input type="text" id="customer-zip" name="zip" required placeholder="10001">
+              <span class="error-msg" id="zip-error"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Payment Section -->
+        <fieldset class="form-section">
+          <legend>💳 Payment Method</legend>
+          <div class="payment-options">
+            <label class="radio-label">
+              <input type="radio" name="payment-method" value="card" checked>
+              <span>Credit / Debit Card</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment-method" value="cod">
+              <span>Cash on Delivery</span>
+            </label>
+          </div>
+
+          <div id="card-fields" class="card-fields">
+            <div class="form-group">
+              <label for="card-number">Card Number *</label>
+              <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+              <span class="error-msg" id="card-error"></span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="card-expiry">Expiry (MM/YY) *</label>
+                <input type="text" id="card-expiry" name="card-expiry" placeholder="12/26" maxlength="5">
+                <span class="error-msg" id="expiry-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="card-cvv">CVV *</label>
+                <input type="password" id="card-cvv" name="card-cvv" placeholder="123" maxlength="4">
+                <span class="error-msg" id="cvv-error"></span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="modal-summary">
+          <span>Amount Due:</span>
+          <strong id="modal-total-price">$0.00</strong>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancel-order-btn" class="btn-secondary">Cancel</button>
+          <button type="submit" id="place-order-btn" class="btn-primary">Confirm &amp; Place Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Footer -->
+  <footer class="page-footer" id="about">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>QuickBite</h3>
+        <p>Speedy, piping-hot meals delivered straight from local top-tier kitchens to your doorstep.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#menu">Full Menu</a></li>
+          <li><a href="#cart">View Cart</a></li>
+          <li><a href="#">Special Offers</a></li>
+          <li><a href="#">FAQs &amp; Help</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Monday - Thursday: 10:00 AM - 11:00 PM</p>
+        <p>Friday - Sunday: 10:00 AM - 1:00 AM</p>
+        <p>Support: support@quickbite.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 QuickBite Food Delivery. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="app2.js"></script>
 </body>
